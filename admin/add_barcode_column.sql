@@ -1,0 +1,1 @@
+ALTER TABLE products ADD COLUMN barcode VARCHAR(100) NULL AFTER name;

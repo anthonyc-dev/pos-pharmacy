@@ -1,0 +1,2 @@
+ALTER TABLE `products`
+ADD COLUMN `medicine_type` VARCHAR(50) DEFAULT NULL AFTER `mg`;
