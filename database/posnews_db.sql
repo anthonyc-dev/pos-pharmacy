@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2025 at 11:45 AM
+-- Generation Time: Dec 03, 2025 at 05:59 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -58,6 +58,7 @@ CREATE TABLE `products` (
   `stock` varchar(255) DEFAULT NULL,
   `expiration` date DEFAULT NULL,
   `barcode` varchar(255) DEFAULT NULL,
+  `batch_number` varchar(50) DEFAULT NULL,
   `quantity` int(11) NOT NULL,
   `mg` varchar(50) DEFAULT NULL,
   `medicine_type` varchar(50) DEFAULT NULL
@@ -67,14 +68,15 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `category_id`, `name`, `price`, `stock`, `expiration`, `barcode`, `quantity`, `mg`, `medicine_type`) VALUES
-(37, 7, 'Symdex-D', 5.00, '97', '2028-09-11', '±4806502850008', 0, '500', NULL),
-(39, 5, 'Dicycloverine Hydrochloride', 10.00, '73', '2025-12-04', '±4806520352898', 0, '200', NULL),
-(40, 8, 'Loperamide', 10.00, '100', '2025-12-04', '±8904182012726', 0, '100', NULL),
-(41, 5, 'Inosine Dimepranol Acedoben', 10.00, '100', '2025-12-06', '±4807788654014', 0, '500', NULL),
-(48, 9, 'Celecoxib', 15.00, '100', '2025-12-11', '±4806503123897', 0, '200', 'Capsule'),
-(49, 5, 'Cefalexin', 10.00, '99', '2027-07-07', '±4806523301893', 0, '500', 'Capsule'),
-(51, 5, 'lozartan', 10.00, '100', '2025-12-04', '±4806524146769', 0, '50', 'Tablet');
+INSERT INTO `products` (`id`, `category_id`, `name`, `price`, `stock`, `expiration`, `barcode`, `batch_number`, `quantity`, `mg`, `medicine_type`) VALUES
+(37, 7, 'Symdex-D', 5.00, '89', '2028-09-11', '±4806502850008', NULL, 0, '500', NULL),
+(39, 5, 'Dicycloverine Hydrochloride', 10.00, '71', '2025-12-04', '±4806520352898', NULL, 0, '200', NULL),
+(40, 8, 'Loperamide', 10.00, '100', '2025-12-04', '±8904182012726', NULL, 0, '100', NULL),
+(41, 5, 'Inosine Dimepranol Acedoben', 10.00, '100', '2025-12-06', '±4807788654014', NULL, 0, '500', NULL),
+(48, 9, 'Celecoxib', 15.00, '92', '2025-12-11', '±4806503123897', NULL, 0, '200', 'Capsule'),
+(49, 5, 'Cefalexin', 10.00, '97', '2027-07-07', '±4806523301893', NULL, 0, '500', 'Capsule'),
+(51, 5, 'lozartan', 10.00, '100', '2025-12-04', '±4806524146769', NULL, 0, '50', 'Tablet'),
+(52, 8, 'neozip', 20.00, '20', '2025-12-29', '123456789', NULL, 0, '60mg', 'Tablet');
 
 -- --------------------------------------------------------
 
@@ -88,6 +90,7 @@ CREATE TABLE `product_details` (
   `category_name` varchar(255) DEFAULT NULL,
   `name` varchar(100) NOT NULL,
   `barcode` varchar(50) NOT NULL,
+  `batch_number` varchar(50) DEFAULT NULL,
   `price` decimal(10,2) NOT NULL,
   `stock` varchar(255) DEFAULT '0',
   `expiration` date DEFAULT NULL,
@@ -98,22 +101,22 @@ CREATE TABLE `product_details` (
 -- Dumping data for table `product_details`
 --
 
-INSERT INTO `product_details` (`id`, `category_id`, `category_name`, `name`, `barcode`, `price`, `stock`, `expiration`, `quantity`) VALUES
-(1, 1, 'Cold & Allergy / Decongestant', 'Symdex-D', '±4806502850008', 5.99, '100', NULL, '1000'),
-(2, 2, 'Antidiarrheal', 'Loperamide', '±8904182012726', 10.50, '100', NULL, NULL),
-(3, 1, 'Antiviral / Immune Booster', 'Inosine Dimepranol Acedoben', '±4807788654014', 15.50, '100', NULL, NULL),
-(4, 3, 'Antispasmodic / Anticholinergic (Stomach & Intestinal Cramps)', 'Dicycloverine Hydrochloride', '±4806520352898', 10.00, '100', NULL, NULL),
-(5, 4, 'Antispasmodic (Stomach / Abdominal Cramps)', 'Hyoscine-N-Butylbromide', '±4806527199823', 5.75, '100', NULL, NULL),
-(7, NULL, 'Antibacterial', 'Vinmox', '±4809015614013', 75.00, '50', NULL, '100'),
-(8, NULL, 'Coffee', 'Nescafe Classic 50g', '4801234560028', 85.00, '40', NULL, NULL),
-(9, NULL, 'Instant Noodles', 'Lucky Me Pancit Canton', '4801234560035', 17.00, '200', NULL, NULL),
-(10, NULL, 'Milk', 'Bear Brand Milk 320g', '4801234560042', 90.00, '35', NULL, NULL),
-(11, NULL, 'Detergent', 'Surf Detergent 350g', '4801234560059', 25.00, '80', NULL, NULL),
-(12, NULL, 'Toiletries', 'Safeguard Soap 90g', '4801234560066', 32.00, '100', NULL, NULL),
-(13, NULL, 'Toiletries', 'Colgate Toothpaste 120ml', '4801234560073', 75.00, '60', NULL, NULL),
-(14, NULL, 'Canned Goods', 'Argentina Corned Beef 150g', '4801234560080', 38.00, '120', NULL, NULL),
-(15, NULL, 'Condiments', 'Datu Puti Soy Sauce 1L', '4801234560097', 45.00, '40', NULL, NULL),
-(16, NULL, 'Alcohol', 'GSM Blue 750ml', '4801234560103', 135.00, '25', NULL, NULL);
+INSERT INTO `product_details` (`id`, `category_id`, `category_name`, `name`, `barcode`, `batch_number`, `price`, `stock`, `expiration`, `quantity`) VALUES
+(1, 1, 'Cold & Allergy / Decongestant', 'Symdex-D', '±4806502850008', NULL, 5.99, '100', NULL, '1000'),
+(2, 2, 'Antidiarrheal', 'Loperamide', '±8904182012726', NULL, 10.50, '100', NULL, NULL),
+(3, 1, 'Antiviral / Immune Booster', 'Inosine Dimepranol Acedoben', '±4807788654014', NULL, 15.50, '100', NULL, NULL),
+(4, 3, 'Antispasmodic / Anticholinergic (Stomach & Intestinal Cramps)', 'Dicycloverine Hydrochloride', '±4806520352898', NULL, 10.00, '100', NULL, NULL),
+(5, 4, 'Antispasmodic (Stomach / Abdominal Cramps)', 'Hyoscine-N-Butylbromide', '±4806527199823', NULL, 5.75, '100', NULL, NULL),
+(7, NULL, 'Antibacterial', 'Vinmox', '±4809015614013', NULL, 75.00, '50', NULL, '100'),
+(8, NULL, 'Coffee', 'Nescafe Classic 50g', '4801234560028', NULL, 85.00, '40', NULL, NULL),
+(9, NULL, 'Instant Noodles', 'Lucky Me Pancit Canton', '4801234560035', NULL, 17.00, '200', NULL, NULL),
+(10, NULL, 'Milk', 'Bear Brand Milk 320g', '4801234560042', NULL, 90.00, '35', NULL, NULL),
+(11, NULL, 'Detergent', 'Surf Detergent 350g', '4801234560059', NULL, 25.00, '80', NULL, NULL),
+(12, NULL, 'Toiletries', 'Safeguard Soap 90g', '4801234560066', NULL, 32.00, '100', NULL, NULL),
+(13, NULL, 'Toiletries', 'Colgate Toothpaste 120ml', '4801234560073', NULL, 75.00, '60', NULL, NULL),
+(14, NULL, 'Canned Goods', 'Argentina Corned Beef 150g', '4801234560080', NULL, 38.00, '120', NULL, NULL),
+(15, NULL, 'Condiments', 'Datu Puti Soy Sauce 1L', '4801234560097', NULL, 45.00, '40', NULL, NULL),
+(16, NULL, 'Alcohol', 'GSM Blue 750ml', '4801234560103', NULL, 135.00, '25', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -254,7 +257,18 @@ INSERT INTO `sales` (`id`, `total`, `cash`, `change_amount`, `sale_date`, `total
 (115, 0.00, 0.00, 0.00, '2025-11-25 15:29:49', 77.50, 100.00, ''),
 (116, 0.00, 0.00, 0.00, '2025-11-25 23:27:23', 20.00, 30.00, ''),
 (117, 0.00, 0.00, 0.00, '2025-11-26 00:54:48', 20.00, 30.00, ''),
-(118, 0.00, 0.00, 0.00, '2025-11-26 09:09:51', 25.00, 30.00, '');
+(118, 0.00, 0.00, 0.00, '2025-11-26 09:09:51', 25.00, 30.00, ''),
+(119, 0.00, 0.00, 0.00, '2025-12-03 09:14:47', 70.00, 100.00, ''),
+(120, 0.00, 0.00, 0.00, '2025-12-03 09:15:04', 0.00, 100.00, ''),
+(121, 0.00, 0.00, 0.00, '2025-12-03 09:15:15', 0.00, 100.00, ''),
+(122, 0.00, 0.00, 0.00, '2025-12-03 09:19:38', 0.00, 100.00, ''),
+(123, 0.00, 0.00, 0.00, '2025-12-03 09:19:48', 15.00, 100.00, ''),
+(124, 0.00, 0.00, 0.00, '2025-12-03 09:19:56', 0.00, 100.00, ''),
+(125, 0.00, 0.00, 0.00, '2025-12-03 09:27:40', 25.00, 50.00, ''),
+(126, 0.00, 0.00, 0.00, '2025-12-03 09:27:50', 20.00, 60.00, ''),
+(127, 0.00, 0.00, 0.00, '2025-12-03 09:32:44', 20.00, 20.00, ''),
+(128, 0.00, 0.00, 0.00, '2025-12-03 09:35:53', 25.00, 50.00, ''),
+(129, 0.00, 0.00, 0.00, '2025-12-03 09:36:32', 25.00, 50.00, '');
 
 -- --------------------------------------------------------
 
@@ -306,7 +320,21 @@ INSERT INTO `sale_items` (`id`, `sale_id`, `product_id`, `quantity`, `price`) VA
 (122, 116, 39, 2, 10.00),
 (123, 117, 39, 2, 10.00),
 (124, 118, 49, 1, 10.00),
-(125, 118, 37, 3, 5.00);
+(125, 118, 37, 3, 5.00),
+(126, 119, 37, 5, 5.00),
+(127, 119, 48, 3, 15.00),
+(128, 123, 49, 1, 10.00),
+(129, 123, 37, 1, 5.00),
+(130, 125, 49, 1, 10.00),
+(131, 125, 48, 1, 15.00),
+(132, 126, 48, 1, 15.00),
+(133, 126, 37, 1, 5.00),
+(134, 127, 37, 1, 5.00),
+(135, 127, 48, 1, 15.00),
+(136, 128, 48, 1, 15.00),
+(137, 128, 39, 1, 10.00),
+(138, 129, 48, 1, 15.00),
+(139, 129, 39, 1, 10.00);
 
 -- --------------------------------------------------------
 
@@ -317,8 +345,10 @@ INSERT INTO `sale_items` (`id`, `sale_id`, `product_id`, `quantity`, `price`) VA
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `role` enum('admin','cashier') NOT NULL,
+  `reset_code` varchar(10) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -326,13 +356,15 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `role`, `created_at`) VALUES
-(1, 'cashier', '$2y$10$M1q26K5ckVMGGGJv9giq8eSrP95GLr0hTADB5i0mDo9UwtyzisugW', 'cashier', '2025-09-04 05:37:43'),
-(2, 'admin', '$2y$10$bf04hNJOWASHGEb5Mgby5e6FMLy0Lad4gnpkd.yV1hXN7uCAhTeY2', 'admin', '2025-09-04 05:38:30'),
-(3, 'cashier@gmail.com', '$2y$10$WoBBOfT55pRYPcnlufzgJeDXImK7/GP60CcMs9vxQvzvq8mCXp2Ca', 'cashier', '2025-09-25 00:44:40'),
-(4, 'aldem@gmail.com', '$2y$10$.azxdHbjCkx.qXa11s6XwuMUaY0DkgbgFUI2Sfo0CagUj7eDzOEHe', 'admin', '2025-09-25 00:48:49'),
-(5, 'admin@example.com', '$2y$10$6qqYTv8y7Vpyi6HB2KYSu.eJllU2zR81VAQdUgjfMNVVp/WNU9wlK', 'admin', '2025-11-11 11:55:12'),
-(6, 'cashier@example.com', '$2y$10$bgzLIkFAxgqEj5O2mUzNZ.J313mWEkVhY2KhcTA2UmUP2PCf423li', 'cashier', '2025-11-11 12:17:05');
+INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `reset_code`, `created_at`) VALUES
+(1, 'cashier', 'cashier1@gmail.com', '$2y$10$M1q26K5ckVMGGGJv9giq8eSrP95GLr0hTADB5i0mDo9UwtyzisugW', 'cashier', NULL, '2025-09-04 05:37:43'),
+(2, 'admin', 'admin1@gmail.com', '$2y$10$bf04hNJOWASHGEb5Mgby5e6FMLy0Lad4gnpkd.yV1hXN7uCAhTeY2', 'admin', NULL, '2025-09-04 05:38:30'),
+(3, 'cashier123', 'cashier@gmail.com', '$2y$10$WoBBOfT55pRYPcnlufzgJeDXImK7/GP60CcMs9vxQvzvq8mCXp2Ca', 'cashier', NULL, '2025-09-25 00:44:40'),
+(4, 'aldem123', 'aldem@gmail.com', '$2y$10$.azxdHbjCkx.qXa11s6XwuMUaY0DkgbgFUI2Sfo0CagUj7eDzOEHe', 'admin', NULL, '2025-09-25 00:48:49'),
+(5, 'adminko', 'admin@example.com', '$2y$10$6qqYTv8y7Vpyi6HB2KYSu.eJllU2zR81VAQdUgjfMNVVp/WNU9wlK', 'admin', NULL, '2025-11-11 11:55:12'),
+(6, 'cashierEx', 'takasukunami76@gmail.com', '$2y$10$X7qIJ9iHy6e1XwxrvRVZN.2SRal3NFic2jRSXL8mK/M7JoV.irF.a', 'cashier', NULL, '2025-11-11 12:17:05'),
+(8, 'example user', 'example@gmail.com', '$2y$10$TA.0MhQdeWMpAjP6SaQlheOp42US3CqlcBQvIbJacC/zObYhKbkdu', 'admin', NULL, '2025-12-02 21:21:34'),
+(9, 'Aldem Gwapo', 'ananavincent8@gmail.com', '$2y$10$u5ewnBxevHTC1lUhmDlhZevqpSp77enKPg1i6jzqqfZW4aSwGQ152', 'cashier', NULL, '2025-12-03 04:53:27');
 
 --
 -- Indexes for dumped tables
@@ -393,7 +425,7 @@ ALTER TABLE `categories`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `product_details`
@@ -405,19 +437,19 @@ ALTER TABLE `product_details`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=130;
 
 --
 -- AUTO_INCREMENT for table `sale_items`
 --
 ALTER TABLE `sale_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=126;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=140;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables
