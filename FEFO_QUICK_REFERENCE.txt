@@ -1,0 +1,114 @@
+╔═══════════════════════════════════════════════════════════════╗
+║                  FEFO SYSTEM - QUICK REFERENCE                ║
+║           First Expire First Out - Staff Guide                ║
+╚═══════════════════════════════════════════════════════════════╝
+
+┌──────────────────────────────────────────────────────────────┐
+│ WHAT IS FEFO?                                                │
+├──────────────────────────────────────────────────────────────┤
+│ Always sell products that expire SOONEST first!              │
+│ This prevents waste and ensures customer safety.             │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│ CASHIER PROCESS                                              │
+├──────────────────────────────────────────────────────────────┤
+│ 1. Scan product barcode                                      │
+│ 2. System automatically selects earliest expiring batch      │
+│ 3. Check for expiration warnings:                            │
+│    • 🔴 EXPIRED = DO NOT SELL                                │
+│    • ⚠️ < 7 days = High Alert (sell immediately)            │
+│    • ⚠️ < 30 days = Warning                                  │
+│ 4. Complete sale normally                                    │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│ SHELF ORGANIZATION (IMPORTANT!)                              │
+├──────────────────────────────────────────────────────────────┤
+│                                                               │
+│  [FRONT]  Earliest Expiration (Customer sees first)          │
+│           ↓                                                   │
+│           Later Expiration                                    │
+│           ↓                                                   │
+│  [BACK]   Latest Expiration (Behind shelf)                   │
+│                                                               │
+│  Example:                                                     │
+│  [FRONT] Symdex-D Exp: Dec 2025 ← PICK THIS                 │
+│          Symdex-D Exp: Mar 2026                              │
+│  [BACK]  Symdex-D Exp: Jun 2026                             │
+│                                                               │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│ RESTOCKING (ADMIN ONLY)                                      │
+├──────────────────────────────────────────────────────────────┤
+│ When new stock arrives:                                      │
+│                                                               │
+│ ✅ DO:                                                        │
+│ • Create NEW product entry in system                         │
+│ • Use DIFFERENT batch number for each delivery               │
+│ • Enter correct expiration date                              │
+│ • Place new stock BEHIND older stock on shelf                │
+│                                                               │
+│ ❌ DON'T:                                                     │
+│ • Don't just add to existing stock number                    │
+│ • Don't merge different batches                              │
+│ • Don't mix expiration dates                                 │
+│                                                               │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│ EXAMPLE SCENARIO                                             │
+├──────────────────────────────────────────────────────────────┤
+│                                                               │
+│ Inventory:                                                    │
+│ • Batch A: 50 pcs, Expires Dec 15, 2025                      │
+│ • Batch B: 30 pcs, Expires Mar 20, 2026                      │
+│                                                               │
+│ Customer buys 3 pieces:                                       │
+│ → System takes from Batch A (earliest)                       │
+│ → Batch A: 47 pcs remaining                                  │
+│ → Batch B: 30 pcs (untouched)                                │
+│                                                               │
+│ Customer buys 60 pieces:                                      │
+│ → System takes 50 from Batch A (all remaining)               │
+│ → System takes 10 from Batch B (to complete order)           │
+│ → Batch A: 0 pcs (depleted)                                  │
+│ → Batch B: 20 pcs remaining                                  │
+│                                                               │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│ KEY RULES                                                    │
+├──────────────────────────────────────────────────────────────┤
+│ 1. NEVER sell expired products                               │
+│ 2. System automatically picks earliest expiring batch        │
+│ 3. Keep physical shelf organized (old in front)              │
+│ 4. Each restock = new batch (don't merge)                    │
+│ 5. Check expiration warnings before selling                  │
+│                                                               │
+└──────────────────────────────────────────────────────────────┘
+
+┌──────────────────────────────────────────────────────────────┐
+│ EXPIRATION ALERT MEANINGS                                    │
+├──────────────────────────────────────────────────────────────┤
+│                                                               │
+│ 🔴 RED (EXPIRED)                                             │
+│    → Product is past expiration date                         │
+│    → System will BLOCK the sale                              │
+│    → Remove from shelf immediately                           │
+│                                                               │
+│ ⚠️ ORANGE (< 7 DAYS)                                         │
+│    → Product expires very soon                               │
+│    → High priority to sell                                   │
+│    → Can still be sold                                       │
+│                                                               │
+│ ⚠️ YELLOW (7-30 DAYS)                                        │
+│    → Product expiring soon                                   │
+│    → Normal priority                                         │
+│                                                               │
+└──────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════
+   For questions, contact the pharmacy manager or IT support
+═══════════════════════════════════════════════════════════════

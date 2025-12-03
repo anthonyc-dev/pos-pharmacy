@@ -748,6 +748,7 @@ if ($res) {
         msgBox.textContent = 'Error saving product.';
         console.error('Save error:', err);
       });
+    });
 </script>
 
   <!-- Low Stock Alert Modal -->
